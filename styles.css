@@ -33,14 +33,9 @@ span {
   display: block;
   margin: 40px auto;
   padding: 10px;
-  border: 1px solid #E6E7E8;
-  font: inherit;
-  font-size: 20px;
-}
-
-button {
-  background-color: #D0D2D3;
-  color: #FFFFFF;
+  border: 2px solid #E6E7E8;
+  font-family: inherit;
+  font-size: 25px;
 }
 
 button {
@@ -49,8 +44,14 @@ button {
   margin: 0 10px;
   border: none;
   border-radius: 20px;
-  font: inherit;
-  font-size: 20px;
+  background-color: #929497;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 25px;
+}
+
+button:disabled {
+  background-color: #D0D2D3;
 }
 
 button:hover {
@@ -67,11 +68,25 @@ button:hover {
 
 p {
   color: #404041;
+  font-size: 25px;
 }
 
 .last-guess {
   margin: 25px auto;
   color: #EB008B;
-  font-size: 100px;
+  font-size: 150px;
   font-weight: 300;
+}
+
+.game{
+  margin: 50px auto;
+}
+
+#reset-btn {
+  width: 400px;
+  height: 34px;
+  border: none;
+  border-radius: 17px;
+  font-family: inherit;
+  font-size: 20px;
 }

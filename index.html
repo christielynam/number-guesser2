@@ -18,23 +18,18 @@
 
       <form class="number-guesser" action="index.html" method="post">
         <input class="player-input" type="number" name="player input" placeholder="Enter your guess" min="1" max="100">
-        <button id="guess-btn" type="button" name="guess" >Guess</button>
-        <button id="clear-btn" type="button" name="clear">Clear</button>
+        <button id="guess-btn" type="button" name="guess" disabled="true" >Guess</button>
+        <button id="clear-btn" type="button" name="clear" disabled="true">Clear</button>
       </form>
-
-      <!-- <section class="welcome">
-        <h2 class="welcome-text">Welcome to Number Guesser. Please enter a number between 1- 100 to begin the game. Good luck!</h2>
-      </section> -->
 
       <section class="game">
         <p>Your last guess was</p>
         <h2 class="last-guess">?</h2>
         <p class="response">Too High/Too Low</p>
       </section>
+
+      <button id="reset-btn" type="button" name="reset" disbaled="true">Reset</button>
     </main>
-
-
-
 
     <script type="text/javascript" src="scripts.js">
     </script>
