@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+header {
+  background-color: #404041;
+  height: 100px;
+}
+
+h1 {
+  margin: 0;
+  color: #E6E7E8;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 100px;
+}
+
+span {
+  color: #ED458B;
+  font-weight: 700;
+}
+
+.player-input {
+  width: 400px;
+  display: block;
+  margin: 40px auto;
+  padding: 10px;
+  border: 1px solid #E6E7E8;
+  font: inherit;
+  font-size: 20px;
+}
+
+button {
+  background-color: #D0D2D3;
+  color: #FFFFFF;
+}
+
+button {
+  width: 185px;
+  height: 40px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 20px;
+  font: inherit;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #EB008B;
+}
+
+#guess-btn {
+  margin-left: 0;
+}
+
+#clear-btn {
+  margin-right: 0;
+}
+
+p {
+  color: #404041;
+}
+
+.last-guess {
+  margin: 25px auto;
+  color: #EB008B;
+  font-size: 100px;
+  font-weight: 300;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Guesser</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+  </head>
+  <body>
+
+    <header>
+      <h1><span>Number</span> Guesser</h1>
+    </header>
+
+    <main>
+
+      <form class="number-guesser" action="index.html" method="post">
+        <input class="player-input" type="number" name="player input" placeholder="Enter your guess" min="1" max="100">
+        <button id="guess-btn" type="button" name="guess" >Guess</button>
+        <button id="clear-btn" type="button" name="clear">Clear</button>
+      </form>
+
+      <!-- <section class="welcome">
+        <h2 class="welcome-text">Welcome to Number Guesser. Please enter a number between 1- 100 to begin the game. Good luck!</h2>
+      </section> -->
+
+      <section class="game">
+        <p>Your last guess was</p>
+        <h2 class="last-guess">?</h2>
+        <p class="response">Too High/Too Low</p>
+      </section>
+    </main>
+
+
+
+
+    <script type="text/javascript" src="scripts.js">
+    </script>
+  </body>
+</html>
