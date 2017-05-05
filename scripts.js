@@ -1,68 +1,126 @@
-var playerInput = document.querySelector('.player-input');
+var rangeMin = document.getElementById('rangeMin');
 
-var guess = parseInt(playerInput.value);
+var rangeMax = document.getElementById('rangeMax');
+
+var playerInput = document.getElementById('player-input');
+
+var minimum = document.getElementById('minimum');
+
+var maximum = document.getElementById('maximum');
 
 var guessButton = document.getElementById('guess-btn');
 
 var clearButton = document.getElementById('clear-btn');
 
+var prevGuess = document.querySelector('.previous-guess');
+
+var lastGuess = document.querySelector('.last-guess');
+
+var response = document.querySelector('.response');
+
 var resetButton = document.getElementById('reset-btn');
-
-var min;
-
-var max;
 
 var randomNum;
 
-
 window.addEventListener('load', function() {
     zeroState();
-    generateRandomNumber();
-    playerInput.focus();
-});
-
-
-function generateRandomNumber(min, max) {
-  var min = 1;
-  var max = 100;
-  randomNum = Math.floor(Math.random() * (max - min)) + min;
-  console.log(randomNum);
-}
-
-guessButton.addEventListener('click', function() {
-  evaluateGuess();
-
+    disableButtons();
 })
 
-function evaluateGuess() {
-  console.log(`guess = ${guess}`);
-  console.log(randomNum);
-  console.log(typeof playerInput.value);
-  debugger;
-  var lastGuess = document.querySelector('.last-guess');
-  var response = document.querySelector('.response');
-  lastGuess.innerText = playerInput.value;
-  if (guess < randomNum) {
-    response.innerText = 'That is too low';
-  } else if (guess > randomNum) {
-    response.innerText = 'That is too high';
-  } else {
-    response.innerText = 'BOOM!'
-  }
-}
+playerInput.addEventListener('input', function() {
+  disableButtons();
+})
+
+guessButton.addEventListener('click', function() {
+  // lastGuess.textContent = playerInput.value;
+  var min = parseInt(minimum.value);
+  var max = parseInt(maximum.value);
+  var guess = parseInt(playerInput.value);
+  generateRandomNumber(min, max);
+  evaluateInput(guess, min, max);
+  disableButtons();
+})
 
 clearButton.addEventListener('click', function() {
   playerInput.value = '';
+  playerInput.focus();
+  disableButtons();
 })
 
 resetButton.addEventListener('click', function() {
   zeroState();
-  generateRandomNumber();
+  enableRange();
+  disableButtons();
 })
 
 function zeroState() {
-  // playerInput.value = '';
-  // guessButton.disabled = true;
-  // clearButton.disabled = true;
+  playerInput.value = '';
+  playerInput.focus();
+  prevGuess.textContent = 'Your last guess was';
+  lastGuess.textContent = '?';
+  response.textContent = 'Too High/Too Low';
+  randomNum = null;
+}
+
+function generateRandomNumber(minimum, maximum) {
+  if (!randomNum) {
+    var min = Math.ceil(minimum);
+    var max = Math.floor(maximum);
+    randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    disableRange();
+    console.log( "randomNumber" + randomNum);
+  }
+}
+
+function disableRange() {
+  minimum.disabled = true;
+  maximum.disabled = true;
+}
+
+function enableRange() {
+  minimum.value = '';
+  maximum.value = '';
+  minimum.disabled = false;
+  maximum.disabled = false;
+}
+
+function evaluateInput(guess, minimum, maximum) {
+  if (guess < minimum || guess > maximum || isNaN(guess) || isNaN(minimum) || isNaN(maximum)) {
+    lastGuess.textContent = 'Invalid Entry';
+    playerInput.value = '';
+    playerInput.focus();
+  } else {
+    lastGuess.textContent = guess;
+    evaluateGuess(guess);
+  }
+}
+
+function evaluateGuess(guess) {
+  if (guess < randomNum) {
+    response.textContent = 'That is too low';
+  } else if (guess > randomNum) {
+    response.textContent = 'That is too high';
+  } else {
+    lastGuess.textContent = 'BOOM!';
+    prevGuess.textContent = '';
+    response.textContent = '';
+    randomNum = null;
+    //TODO call a fx that adjusts the min and max range
+  }
+}
+
+function disableButtons() {
+  if (playerInput.value === '') {
+    guessButton.disabled = true;
+    clearButton.disabled = true;
+    resetButton.disabled = true;
+  } else {
+    guessButton.disabled = false;
+    clearButton.disabled = false;
+    resetButton.disabled = false;
+  }
+}
+
+function setMinAndMax() {
 
 }

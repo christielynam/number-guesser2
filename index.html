@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Number Guesser</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
-  </head>
-  <body>
 
-    <header>
-      <h1><span>Number</span> Guesser</h1>
-    </header>
+<head>
+  <title>Number Guesser</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+</head>
 
-    <main>
+<body>
 
-      <form class="number-guesser" action="index.html" method="post">
-        <input class="player-input" type="number" name="player input" placeholder="Enter your guess" min="1" max="100">
-        <button id="guess-btn" type="button" name="guess" >Guess</button>
-        <button id="clear-btn" type="button" name="clear">Clear</button>
-      </form>
+  <header>
+    <h1><span>Number</span> Guesser</h1>
+  </header>
 
-      <section class="game">
-        <p>Your last guess was</p>
-        <h2 class="last-guess">?</h2>
-        <p class="response">Too High/Too Low</p>
-      </section>
+  <main>
 
-      <button id="reset-btn" type="button" name="reset" disbaled="true">Reset</button>
-    </main>
+    <form class="number-guesser" action="index.html" method="post">
+      <label class="label" for="player-input">Enter your guess between <span id="rangeMin">1</span>-<span id="rangeMax">100</span></label>
+      <input class="player-input" id="player-input" type="text" name="player input" autocomplete="off" placeholder="Enter a number" min="1" max="100">
+      <div class="range">
+        <input class="player-input" id="minimum" type="text" name="player input" autocomplete="off" placeholder="Min">
+        <input class="player-input" id="maximum" type="text" name="player input" autocomplete="off" placeholder="Max">
+      </div>
+      <button id="guess-btn" type="button" name="guess" disabled="true">Guess</button>
+      <button id="clear-btn" type="button" name="clear" disbabled="true">Clear</button>
+    </form>
 
-    <script type="text/javascript" src="scripts.js">
-    </script>
-  </body>
+    <section class="game">
+      <p class="previous-guess">Your last guess was</p>
+      <h2 class="last-guess">?</h2>
+      <p class="response">Too High/Too Low</p>
+    </section>
+
+    <button id="reset-btn" type="button" name="reset" disbaled="true">Reset</button>
+  </main>
+
+  <script type="text/javascript" src="scripts.js">
+  </script>
+</body>
+
 </html>
