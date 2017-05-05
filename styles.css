@@ -32,14 +32,14 @@ span {
   margin-top: 50px;
 }
 
-.label {
-  font-size: 25px;
+.set-range {
+  margin-bottom: 10px;
 }
 
 .player-input {
   width: 400px;
   display: block;
-  margin: 40px auto;
+  margin: 5px auto;
   padding: 10px;
   border: 2px solid #E6E7E8;
   font-family: inherit;
@@ -56,6 +56,11 @@ span {
   width: 200px;
   margin-top: 10px;
   font-size: 20px;
+}
+
+#minimum:disabled,
+#maximum:disabled {
+  background-color: #D0D2D3;
 }
 
 button {

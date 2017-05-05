@@ -19,12 +19,12 @@
   <main>
 
     <form class="number-guesser" action="index.html" method="post">
-      <label class="label" for="player-input">Enter your guess between <span id="rangeMin">1</span>-<span id="rangeMax">100</span></label>
-      <input class="player-input" id="player-input" type="text" name="player input" autocomplete="off" placeholder="Enter a number" min="1" max="100">
+      <p class="set-range">Feel free to set your own range</p>
       <div class="range">
-        <input class="player-input" id="minimum" type="text" name="player input" autocomplete="off" placeholder="Min">
-        <input class="player-input" id="maximum" type="text" name="player input" autocomplete="off" placeholder="Max">
+        <input class="player-input" id="minimum" type="text" name="player input" autocomplete="off" value="1" placeholder="Min">
+        <input class="player-input" id="maximum" type="text" name="player input" autocomplete="off" value="100" placeholder="Max">
       </div>
+      <input class="player-input" id="player-input" type="text" name="player input" autocomplete="off" placeholder="Enter a number" min="1" max="100">
       <button id="guess-btn" type="button" name="guess" disabled="true">Guess</button>
       <button id="clear-btn" type="button" name="clear" disbabled="true">Clear</button>
     </form>

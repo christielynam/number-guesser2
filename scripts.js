@@ -1,12 +1,8 @@
-var rangeMin = document.getElementById('rangeMin');
-
-var rangeMax = document.getElementById('rangeMax');
-
-var playerInput = document.getElementById('player-input');
-
 var minimum = document.getElementById('minimum');
 
 var maximum = document.getElementById('maximum');
+
+var playerInput = document.getElementById('player-input');
 
 var guessButton = document.getElementById('guess-btn');
 
@@ -32,7 +28,6 @@ playerInput.addEventListener('input', function() {
 })
 
 guessButton.addEventListener('click', function() {
-  // lastGuess.textContent = playerInput.value;
   var min = parseInt(minimum.value);
   var max = parseInt(maximum.value);
   var guess = parseInt(playerInput.value);
@@ -51,6 +46,8 @@ resetButton.addEventListener('click', function() {
   zeroState();
   enableRange();
   disableButtons();
+  minimum.value = '1';
+  maximum.value = '100';
 })
 
 function zeroState() {
@@ -119,8 +116,4 @@ function disableButtons() {
     clearButton.disabled = false;
     resetButton.disabled = false;
   }
-}
-
-function setMinAndMax() {
-
 }
