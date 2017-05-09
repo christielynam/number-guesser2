@@ -37,6 +37,7 @@ guessButton.addEventListener('click', function() {
   evaluateInput(guess, min, max);
   disableButtons();
   playerInput.focus();
+  playerInput.value = '';
 })
 
 window.addEventListener('keyup', function(event) {
@@ -48,6 +49,7 @@ window.addEventListener('keyup', function(event) {
     evaluateInput(guess, min, max);
     disableButtons();
     playerInput.focus();
+    playerInput.value = '';
   }
 })
 
