@@ -36,7 +36,7 @@ span {
   margin-bottom: 10px;
 }
 
-.player-input {
+.user-input {
   width: 400px;
   display: block;
   margin: 5px auto;
@@ -96,7 +96,7 @@ p {
   font-size: 25px;
 }
 
-.last-guess {
+.current-guess {
   margin: 25px auto;
   color: #EB008B;
   font-size: 150px;
