@@ -71,8 +71,10 @@ button {
   border-radius: 20px;
   background-color: #929497;
   color: #FFFFFF;
+  cursor: pointer;
   font-family: inherit;
   font-size: 25px;
+  outline: none;
 }
 
 button:disabled {

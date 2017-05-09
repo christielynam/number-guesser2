@@ -36,6 +36,19 @@ guessButton.addEventListener('click', function() {
   generateRandomNumber(min, max);
   evaluateInput(guess, min, max);
   disableButtons();
+  playerInput.focus();
+})
+
+window.addEventListener('keyup', function(event) {
+  if (event.keyCode === 13) {
+    var min = parseInt(minRange.value);
+    var max = parseInt(maxRange.value);
+    var guess = parseInt(playerInput.value);
+    generateRandomNumber(min, max);
+    evaluateInput(guess, min, max);
+    disableButtons();
+    playerInput.focus();
+  }
 })
 
 clearButton.addEventListener('click', function() {
@@ -50,6 +63,7 @@ resetButton.addEventListener('click', function() {
   disableButtons();
   minRange.value = '1';
   maxRange.value = '100';
+  guessAgain.textContent = '';
 })
 
 function zeroState() {
