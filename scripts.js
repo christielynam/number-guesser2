@@ -35,11 +35,9 @@ guessButton.addEventListener('click', function() {
   var max = parseInt(maxRange.value);
   var guess = parseInt(playerInput.value);
   generateRandomNumber(min, max);
-  // evaluateRange();
   evaluateInput(guess, min, max);
   disableButtons();
-  playerInput.value = '';
-  playerInput.focus();
+  resetPlayerInput();
 })
 
 window.addEventListener('keyup', function(event) {
@@ -50,14 +48,12 @@ window.addEventListener('keyup', function(event) {
     generateRandomNumber(min, max);
     evaluateInput(guess, min, max);
     disableButtons();
-    playerInput.focus();
-    playerInput.value = '';
+    resetPlayerInput();
   }
 })
 
 clearButton.addEventListener('click', function() {
-  playerInput.value = '';
-  playerInput.focus();
+  resetPlayerInput();
   disableButtons();
 })
 
@@ -65,19 +61,21 @@ resetButton.addEventListener('click', function() {
   zeroState();
   enableRange();
   disableButtons();
-  minRange.value = '1';
-  maxRange.value = '100';
-  guessAgain.textContent = '';
 })
 
 function zeroState() {
-  playerInput.value = '';
-  playerInput.focus();
+  randomNum = null;
+  enableRange();
+  resetPlayerInput();
   lastGuess.textContent = 'Your last guess was';
   currentGuess.textContent = '?';
   response.textContent = 'Too High/Too Low';
-  randomNum = null;
-  resetButton.disabled = true;
+  guessAgain.textContent = '';
+}
+
+function resetPlayerInput() {
+  playerInput.value = '';
+  playerInput.focus();
 }
 
 function generateRandomNumber(min, max) {
@@ -115,27 +113,26 @@ function disableRange() {
 
 function evaluateInput(guess, min, max) {
   if (min > max) {
-    currentGuess.textContent = 'Invalid Range';
-    minRange.disabled = false;
-    maxRange.disabled = false;
-    randomNum = null;
+    invalidRange();
   } else if (guess < min || guess > max || isNaN(guess) || isNaN(min) || isNaN(max)) {
-    currentGuess.textContent = 'Invalid Entry';
-    playerInput.value = '';
-    playerInput.focus();
+    invalidEntry();
   } else {
     currentGuess.textContent = guess;
     evaluateGuess(guess);
   }
 }
 
-// function evaluateRange(min, max) {
-//   if (min > max) {
-//     currentGuess.textContent = 'Invalid Range';
-//     minRange.disabled = false;
-//     maxRange.disabled = false;
-//   }
-// }
+function invalidRange() {
+  currentGuess.textContent = 'Invalid Range';
+  minRange.disabled = false;
+  maxRange.disabled = false;
+  randomNum = null;
+}
+
+function invalidEntry() {
+  currentGuess.textContent = 'Invalid Entry';
+  resetPlayerInput();
+}
 
 function evaluateGuess(guess) {
   if (guess < randomNum) {
