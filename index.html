@@ -13,16 +13,18 @@
     <h1><span>Number</span> Guesser</h1>
   </header>
   <main>
-    <p class="set-range">Pick a number between 1-100
-    <br/> or <br/>Feel free to set your own range</p>
-    <div class="range">
-      <input class="user-input" id="minimum" type="text" name="minimum input" autocomplete="off" value="1" placeholder="Min">
-      <input class="user-input" id="maximum" type="text" name="maximum input" autocomplete="off" value="100" placeholder="Max">
-    </div>
-    <input class="user-input" id="player-input" type="text" name="player input" autocomplete="off" placeholder="Enter a number" min="1" max="100">
-    <button id="guess-btn" type="button" name="guess button" disabled="true">Guess</button>
-    <button id="clear-btn" type="button" name="clear button" disbabled="true">Clear</button>
-    <section class="game">
+    <form class="game-form" action="index.html" method="post">
+      <p class="set-range">Pick a number between 1-100
+      <br/> or <br/>Feel free to set your own range</p>
+      <div class="range" role="range">
+        <input class="user-input" id="minimum" type="text" name="minimum input" autocomplete="off" value="1" placeholder="Min">
+        <input class="user-input" id="maximum" type="text" name="maximum input" autocomplete="off" value="100" placeholder="Max">
+      </div>
+      <input class="user-input" id="player-input" type="text" name="player input" autocomplete="off" placeholder="Enter a number" min="1" max="100">
+      <button id="guess-btn" type="button" name="guess button" disabled="true">Guess</button>
+      <button id="clear-btn" type="button" name="clear button" disbabled="true">Clear</button>
+  </form>
+    <section class="game-output">
       <p class="last-guess">Your last guess was</p>
       <h2 class="current-guess">?</h2>
       <p class="response">Too High/Too Low</p>

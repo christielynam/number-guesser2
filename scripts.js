@@ -36,8 +36,8 @@ guessButton.addEventListener('click', function() {
   generateRandomNumber(min, max);
   evaluateInput(guess, min, max);
   disableButtons();
-  playerInput.focus();
   playerInput.value = '';
+  playerInput.focus();
 })
 
 window.addEventListener('keyup', function(event) {
@@ -84,7 +84,7 @@ function generateRandomNumber(min, max) {
     var max = Math.floor(max);
     randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     disableRange();
-    console.log( "randomNum" + randomNum);
+    // console.log( "randomNum" + randomNum);
   }
 }
 
@@ -93,8 +93,8 @@ function adjustRange(min, max) {
   var max = parseInt(maxRange.value);
   minRange.value = min - 10;
   maxRange.value = max + 10;
-  console.log('min', min - 10);
-  console.log('max', max + 10);
+  // console.log('min', min - 10);
+  // console.log('max', max + 10);
 }
 
 function enableRange() {
@@ -148,7 +148,7 @@ function tooHigh() {
 
 function boom() {
   currentGuess.textContent = 'BOOM!';
-  lastGuess.textContent = 'Youre good... Lets make this a little harder!';
+  lastGuess.textContent = 'You\'re good... Lets make this a little harder!';
   response.textContent = 'Decreasing the min by 10, increasing the max by 10...';
   guessAgain.textContent = 'Now Guess Again!';
 }

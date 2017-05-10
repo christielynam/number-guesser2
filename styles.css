@@ -11,8 +11,8 @@ body {
 }
 
 header {
-  background-color: #404041;
   height: 100px;
+  background-color: #404041;
 }
 
 h1 {
@@ -28,12 +28,8 @@ span {
   font-weight: 700;
 }
 
-.number-guesser {
-  margin-top: 50px;
-}
-
 .set-range {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .user-input {
@@ -47,7 +43,7 @@ span {
 }
 
 #player-input {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 #minimum,
@@ -105,7 +101,7 @@ p {
   font-weight: 300;
 }
 
-.game{
+.game-output{
   margin: 50px auto;
 }
 
