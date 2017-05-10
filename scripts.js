@@ -22,6 +22,7 @@ var randomNum;
 
 window.addEventListener('load', function() {
   zeroState();
+  enableRange();
   disableButtons();
 })
 
@@ -34,6 +35,7 @@ guessButton.addEventListener('click', function() {
   var max = parseInt(maxRange.value);
   var guess = parseInt(playerInput.value);
   generateRandomNumber(min, max);
+  // evaluateRange();
   evaluateInput(guess, min, max);
   disableButtons();
   playerInput.value = '';
@@ -84,7 +86,7 @@ function generateRandomNumber(min, max) {
     var max = Math.floor(max);
     randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     disableRange();
-    // console.log( "randomNum" + randomNum);
+    console.log( "randomNum" + randomNum);
   }
 }
 
@@ -93,8 +95,8 @@ function adjustRange(min, max) {
   var max = parseInt(maxRange.value);
   minRange.value = min - 10;
   maxRange.value = max + 10;
-  // console.log('min', min - 10);
-  // console.log('max', max + 10);
+  console.log('min', min - 10);
+  console.log('max', max + 10);
 }
 
 function enableRange() {
@@ -112,7 +114,12 @@ function disableRange() {
 }
 
 function evaluateInput(guess, min, max) {
-  if (guess < min || guess > max || isNaN(guess) || isNaN(min) || isNaN(max)) {
+  if (min > max) {
+    currentGuess.textContent = 'Invalid Range';
+    minRange.disabled = false;
+    maxRange.disabled = false;
+    randomNum = null;
+  } else if (guess < min || guess > max || isNaN(guess) || isNaN(min) || isNaN(max)) {
     currentGuess.textContent = 'Invalid Entry';
     playerInput.value = '';
     playerInput.focus();
@@ -122,12 +129,20 @@ function evaluateInput(guess, min, max) {
   }
 }
 
+// function evaluateRange(min, max) {
+//   if (min > max) {
+//     currentGuess.textContent = 'Invalid Range';
+//     minRange.disabled = false;
+//     maxRange.disabled = false;
+//   }
+// }
+
 function evaluateGuess(guess) {
   if (guess < randomNum) {
     tooLow();
   } else if (guess > randomNum) {
     tooHigh();
-  } else {
+  } else if (guess === randomNum){
     boom();
     adjustRange();
     randomNum = null;
