@@ -59,7 +59,6 @@ clearButton.addEventListener('click', function() {
 
 resetButton.addEventListener('click', function() {
   zeroState();
-  enableRange();
   disableButtons();
 })
 
