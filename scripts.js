@@ -83,7 +83,6 @@ function generateRandomNumber(min, max) {
     var max = Math.floor(max);
     randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     disableRange();
-    console.log( "randomNum" + randomNum);
   }
 }
 
@@ -92,8 +91,6 @@ function adjustRange(min, max) {
   var max = parseInt(maxRange.value);
   minRange.value = min - 10;
   maxRange.value = max + 10;
-  console.log('min', min - 10);
-  console.log('max', max + 10);
 }
 
 function enableRange() {
